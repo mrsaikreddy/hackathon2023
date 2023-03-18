@@ -1,0 +1,129 @@
+main {
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "introduction"
+      "getting-started"
+      "configuration"
+      "customization"
+      "conclusion";
+    gap: 30px;
+    justify-items: center;
+  }
+  
+  section {
+    grid-area: unset;
+    width: 70%;
+    padding-left: 100px;
+  }
+  
+  #introduction {
+    grid-area: introduction;
+    width: 70%;
+    padding-left: 100px;
+  }
+  
+  #getting-started {
+    grid-area: getting-started;
+  }
+  
+  #configuration {
+    grid-area: configuration;
+  }
+  
+  #customization {
+    grid-area: customization;
+  }
+  
+  pre {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  pre code {
+    display: block;
+  }
+  
+  pre code .copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  pre code .copy-btn:hover {
+    background-color: #555;
+  }
+  
+  /* Hide the button when the code block is not being hovered */
+  pre:not(:hover) code .copy-btn {
+    display: none;
+  }
+  
+  /* Media queries for responsiveness */
+  
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "introduction"
+        "getting-started"
+        "configuration"
+        "customization"
+        "conclusion";
+      justify-items: center;
+      padding: 20px;
+    }
+  
+    section,
+    #introduction {
+      width: 100%;
+      padding-left: 0;
+    }
+  
+    pre {
+      font-size: 14px;
+    }
+  }
+  .image-container {
+    width: 400px; /* set the width of the container */
+    height: 400px; /* set the height of the container */
+    overflow: hidden; /* hide any overflow */
+    border-radius: 15px; /* set a smooth border */
+    position: relative; /* set position relative for the container */
+  }
+  
+  .image-container img {
+    width: 100%; /* set the image to fill the container */
+    height: 100%; /* set the image to fill the container */
+    transition: all 0.2s ease-in-out; /* add a transition effect */
+    position: absolute; /* set position absolute for the image */
+    top: 0; /* set the top position to 0 */
+    left: 0; /* set the left position to 0 */
+  }
+  
+  .image-container:hover img {
+    transform: scale(1.1); /* increase the image size on hover */
+  }
+  
+  section {
+   padding-top: 4%;
+  }
+  
+  @media (max-width: 480px) {
+    pre {
+      font-size: 12px;
+    }
+  }
+  
