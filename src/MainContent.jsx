@@ -1,27 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./MainContent.css";
 import ClipboardJS from 'clipboard';
 
-
-const copyBtns = document.querySelectorAll('pre code .copy-btn');
-
-copyBtns.forEach(btn => {
-  const code = btn.parentNode;
-  const clipboard = new ClipboardJS(btn, {
-    text: () => code.innerText,
-  });
-
-  clipboard.on('success', () => {
-    btn.innerText = 'Copied!';
-    setTimeout(() => {
-      btn.innerText = 'Copy';
-    }
-    , 2000);
-  });
-});
-
-
 function MainContent() {
+  useEffect(() => {
+    const copyBtns = document.querySelectorAll('pre code .copy-btn');
+
+    copyBtns.forEach(btn => {
+      const code = btn.parentNode;
+      const clipboard = new ClipboardJS(btn, {
+        text: () => code.innerText,
+      });
+
+      clipboard.on('success', () => {
+        btn.innerText = 'Copied!';
+        setTimeout(() => {
+          btn.innerText = 'Copy';
+        }, 2000);
+      });
+    });
+  }, []);
+
   return (
     <main className="main-content">
       <section id="introduction" >
@@ -39,8 +38,8 @@ function MainContent() {
             </code>
         </pre>
         <div class="image-container">
-  <img src="https://source.unsplash.com/random/200x200" alt="example image"></img>
-</div>
+          <img src="https://source.unsplash.com/random/200x200" alt="example image"></img>
+        </div>
       </section>
       <section id="configuration">
         <h2>Configuration</h2>
